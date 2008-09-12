@@ -1,0 +1,12 @@
+@import url("html.css");
+
+#menubar ul li.config a { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
+
+.list {
+	margin:20px;
+}
+
+.list ul{ margin:20px; }
+.list ul li { line-height:28px; border-bottom:1px solid #DDD;}
+.list ul li .name { font-size:14px;padding:5px 2px; margin-right:5px;}<br>
+.list ul li span.hover { background:#54C4B5;color:red;}

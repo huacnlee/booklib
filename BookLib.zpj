@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<project version="5.5" encoding="UTF-8">
+	<project_entity ID="debugger">
+		<connectionInfo use_defaults="true" tempFilesLocation="C:\Documents and Settings\hs.li" debug_mode="local" serverHost="http://Server_Address/" port="10000"/>
+		<breakpoints/>
+		<watches/>
+	</project_entity>
+	<project_entity ID="SourceControl">
+		<encodingStyle value="CVS"/>
+	</project_entity>
+	<project_entity ID="project_roots">
+		<vfile name="E:\Web\BookLib"/>
+	</project_entity>
+	<project_entity ID="javaBridge" JRE_Name="1.5.0_06"/>
+	<project_entity ID="bookmarks">
+		<bookmark fileName="E:\Web\BookLib\system\application\views\admin\footer.php" lineNumber="0" description=""/>
+	</project_entity>
+	<project_entity ID="editor_component" selectedEditor="0">
+		<openEditors>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\members.php" caretPosition="478" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\members\edit.php" caretPosition="401" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\admin\books.php" caretPosition="11348" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\admin\members.php" caretPosition="5266" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\members\message.php" caretPosition="0" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\MemberModel.php" caretPosition="1621" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\members\create.php" caretPosition="408" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\books.php" caretPosition="683" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\BookModel.php" caretPosition="3693" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\books\view.php" caretPosition="283" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\BookTypes.php" caretPosition="725" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\admin\config.php" caretPosition="6725" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\Sorts.php" caretPosition="421" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\Locations.php" caretPosition="225" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\config\config.php" caretPosition="822" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\admin\home.php" caretPosition="0" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\Users.php" caretPosition="1591" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\admin\login.php" caretPosition="729" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\header.php" caretPosition="325" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\admin\pagebase.php" caretPosition="0" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\menubar.php" caretPosition="304" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\views\admin\login.php" caretPosition="0" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\styles\cp\html.css" caretPosition="1918" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\controllers\home.php" caretPosition="174" clone="false" encoding="UTF-8"/>
+			<editor fileName="E:\Web\BookLib\system\application\models\keywords.php" caretPosition="0" clone="false" encoding="UTF-8"/>
+		</openEditors>
+	</project_entity>
+	<project_entity ID="Subversion">
+		<svnCmdArguments>
+			<SubversionCommand commandType="update"/>
+			<SubversionCommand commandType="commit"/>
+			<SubversionCommand commandType="add"/>
+			<SubversionCommand commandType="status"/>
+			<SubversionCommand commandType="diff"/>
+			<SubversionCommand commandType="delete"/>
+			<SubversionCommand commandType="revert"/>
+			<SubversionCommand commandType="resolve"/>
+		</svnCmdArguments>
+	</project_entity>
+	<project_entity ID="CVS">
+		<lastArguments>
+			<CVSCommand commandType="update"/>
+			<CVSCommand commandType="commit"/>
+			<CVSCommand commandType="add"/>
+			<CVSCommand commandType="status"/>
+			<CVSCommand commandType="diff"/>
+		</lastArguments>
+	</project_entity>
+</project>

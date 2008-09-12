@@ -1,0 +1,8 @@
+@import url("html.css");
+
+#menubar ul li.home a { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
+
+
+
+.tip { margin:20px; padding:10px;}
+.tip h3 { margin-bottom:5px; border-bottom:1px solid #DDD; padding:5px; }

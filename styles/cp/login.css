@@ -1,0 +1,12 @@
+@import url("html.css");
+
+.login {
+	margin:20px auto;
+	text-align:left;
+	width:400px;
+}
+.login table { width:400px;}
+.login table tr td { padding:5px;}
+.login table tr td.label { width:80px; text-align:right; color:#999;}
+.login .message { color:#013172;}
+.login .error { color:#C60022; }

@@ -1,0 +1,63 @@
+* { margin:0; padding:0;}
+body { 
+	margin: 0; 
+	padding: 0; 
+	font-family: Arial, Lucida Grande, Verdana, Geneva, Sans-serif; 
+	font-size: 12px; 
+	color: #333; 
+	background-color: #fff; 
+	text-align:center;
+}
+
+#layout { margin:0;}
+#main { width:900px; margin:0 auto; background:#FFF;}
+
+#header {background:#253139; height:111px; color:#FFF;}
+#header .inner {width:900px;  margin:0 auto 0 auto; text-align:left;  border-top:1px solid #313E45;}
+#header h1 { line-height:75px; font-size:25px;}
+#header .right {float:right; margin-top:-51px;}
+#header .right a {color:#FFF;padding:2px;}
+#header .right span {padding:2px;}
+#header .right span.username {font-weight:bold;}
+
+#menubar{
+	margin-top:10px;
+}
+
+#menubar ul { list-style:none;width:900px;  margin:0 auto 0 auto; text-align:left; clear:both;}
+#menubar ul li { float:left; margin-right:5px;}
+#menubar ul li a:link,#menubar ul li a:visited {text-decoration:none; font-weight:bold; background:#142129; height:25px; line-height:24px; display:block; width:120px;color:#FFF; text-align:center; }
+#menubar ul li a:hover { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
+
+#footer { border-top:1px solid #CCC;}
+#footer .inner {width:900px;  margin:10px auto; font-size:11px; }
+#footer .inner .name {color:green;}
+
+#main {
+	width:900px;  margin:0 auto 0 auto; text-align:left; 
+}
+
+#main .submenu { font-weight:bold;}
+#main .submenu ul { list-style:none; height:28px; margin:10px;}
+#main .submenu ul li { float:left; margin-right:15px; }
+#main .submenu ul li a:link,#main .submenu ul li a:visited {padding:3px; color:#465C8A;}
+#main .submenu ul li a:hover { background:#465C8A; color:#FFF;}
+
+.form input.text,.form textarea.text,.form select.text {font-size:12px; border:1px solid #A5ACB2; padding:2px; }
+.form input.s { width:80px;}
+.form input.m { width:150px; }
+.form input.l {width:450px;}
+
+.form button.submit {padding:3px 25px;}
+
+ul {list-style-position:inside;}
+
+h2 {font-size:25px; color:#489D3E;}
+
+a.create {font-size:12px; color:#4850CB;font-weight:normal;} 
+a.delete {font-size:12px; color:green;font-weight:normal;}
+a.rename,a.edit,a.view {font-size:12px; color:#333;font-weight:normal;}
+
+
+span.message { font-size:12px; font-weight:normal;color:green;}
+span.red {color:red;}
