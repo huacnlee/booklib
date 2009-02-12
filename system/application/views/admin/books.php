@@ -1,4 +1,30 @@
 <?=$this->load->view("admin/header",$data)?>
+<style type="text/css">
+	.list {text-align:center;}
+	.list table {width:880px;border:1px solid #DDD;padding:2px; margin:10px auto; text-align:left;	}
+	.list table tr { height:22px;}
+	.list table tr th { background:#F5F5F5;padding:2px;}
+	.list table tr td {padding:2px;}
+	.list table tr.lending  td{ background:#EAFFEA;}
+	.list table tr.close  td{color:#DDD;}
+	.list table tr.li  td{background:#F9F9F9;}
+	.list table span.disabled {color:#DDD;}
+
+	#main .submenu ul li.list a{ background:#465C8A; color:#FFF; }
+
+	.listinfo { width:880px; margin:10px auto; background:#FFFDE9; border:1px solid #EEEBA3; padding:2px;}
+	.listinfo .title { font-size:14px; font-weight:bold; color:#DFAC00;padding:5px;}
+	.listinfo .content {font-size:12px;padding:5px;color:#999;}
+	.listinfo .content ol {list-style-position:inside;}
+	.listinfo .content ol li { line-height:150%;}
+
+	.searchpanel { margin:5px auto; width:880px; text-algin:center; font-size:14px;}
+
+	.pager {  margin:5px auto; width:880px; font-size:14px; text-align:right;}
+	.pager a:link,.pager a:visited { padding:0 4px; color:#465C8A; font-size:14px;}
+	.pager b { padding:0 4px; }
+
+</style>
 <script type="text/javascript">
 $("#main .list").ready(function(){
 	var list = $(this);
@@ -39,27 +65,6 @@ var removeBook = function(bookid){
 	});
 }
 </script>
-<style type="text/css">
-	.list {text-align:center;}
-	.list table {width:880px;border:1px solid #DDD;padding:2px; margin:10px auto; text-align:left;	}
-	.list table tr { height:22px;}
-	.list table tr th { background:#F5F5F5;padding:2px;}
-	.list table tr td {padding:2px;}
-	.list table tr.lending  td{ background:#EAFFEA;}
-	.list table tr.close  td{color:#DDD;}
-	.list table span.disabled {color:#DDD;}
-	
-	.listinfo { width:880px; margin:10px auto; background:#FFFDE9; border:1px solid #EEEBA3; padding:2px;}
-	.listinfo .title { font-size:14px; font-weight:bold; color:#DFAC00;padding:5px;}
-	.listinfo .content {font-size:12px;padding:5px;color:#999;}
-	.listinfo .content ol {list-style-position:inside;}
-	.listinfo .content ol li { line-height:150%;}
-	
-	.searchpanel { margin:5px auto; width:880px; text-algin:center; font-size:14px;}
-	
-	.pager {  margin:5px auto; width:880px; font-size:14px; text-align:right;}
-	
-</style>
 <script type="text/javascript">
 	var doSearch = function(){
 		var searchText = $("#txtSearch").val();
@@ -88,6 +93,7 @@ var removeBook = function(bookid){
 				<th width="50">编号</th><th>书名</th><th width="70">标签</th><th  width="70">媒介</th><th  width="70">内容类型</th><th width="50">书架</th><th width="110"></th>
 			</tr>
 			<?php
+			$i = 0;
 			foreach($bookList->result() as $row){
 				$rowClass = "";
 				switch ($row->bookstatus){
@@ -96,6 +102,11 @@ var removeBook = function(bookid){
 						break;
 					case 3:
 						$rowClass = "close";
+						break;
+					default:
+						if($i % 2 == 1){
+							$rowClass = "li";
+						}
 						break;
 				}
 			?>
@@ -131,6 +142,7 @@ var removeBook = function(bookid){
 				</td>
 			</tr>
 			<?php
+				$i ++;
 			}
 		}
 		else{

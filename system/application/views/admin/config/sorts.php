@@ -1,6 +1,6 @@
 <?=$this->load->view("admin/header",$data)?>
 <style type="text/css">
-.submenu ul li.sorts a{ background:#465C8A; color:#FFF; }
+#main .submenu ul li.sorts a{ background:#465C8A; color:#FFF; }
 </style>
 <script type="text/javascript">
 	/**

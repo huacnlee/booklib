@@ -322,6 +322,6 @@ $config['rewrite_short_tags'] = FALSE;
 |--------------------------------------------------------------------------
 */
 $config["sitename"] = "壹旅游图书管理系统";
-$config["version"] = "0.0.1";
+$config["version"] = "1.0.2";
 
 ?>

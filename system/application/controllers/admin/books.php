@@ -27,15 +27,21 @@ class Books extends Controller{
 		//加载分类列表
         $this->load->model("bookmodel");
         
-		$config['base_url'] = site_url()."/admin/books/index";		
-		$config['per_page'] = $pageSize;	
+		
 		
 		$bookList = $this->bookmodel->GetAllByPage($pageSize,$pageIndex,$searchText);
 		
 		$rowCount = $this->bookmodel->GetCount($searchText);
 		
+		$config['base_url'] = site_url()."/admin/books/index";		
+		$config['per_page'] = $pageSize;	
+		$config['uri_segment'] = 4;
+		$config['num_links'] = 7;
 		$config['total_rows'] = $rowCount;
-
+		$config['first_link'] = '首页';
+		$config['prev_link'] = '上一页';
+		$config['next_link'] = '下一页';
+		$config['last_link'] = '尾页';
 		
 		$this->pagination->initialize($config);	
 		$pagebar =  $this->pagination->create_links();

@@ -1,4 +1,15 @@
 <?=$this->load->view("admin/header",$data)?>
+<style type="text/css">
+	.form { margin:20px; border:1px solid #CAD0D5; padding:10px;}
+	.form table tr td { padding:5px;}
+	.form table tr td.label { width:80px; text-align:right; color:#999;}
+	#main .submenu ul li.list a{ background:#465C8A; color:#FFF; }
+	.list {text-align:center;}
+	.list table {width:880px;border:1px solid #DDD;padding:2px; margin:10px auto; text-align:left;	}
+	.list table tr { height:22px;}
+	.list table tr th { background:#F5F5F5;padding:2px;}
+	.list table tr td {padding:2px;}
+</style>
 <script type="text/javascript">
 $("#main .list").ready(function(){
 	var list = $(this);
@@ -26,17 +37,7 @@ var removeMember = function(id){
 	
 }
 </script>
-<style type="text/css">
-	.form { margin:20px; border:1px solid #CAD0D5; padding:10px;}
-	.form table tr td { padding:5px;}
-	.form table tr td.label { width:80px; text-align:right; color:#999;}
-	
-	.list {text-align:center;}
-	.list table {width:880px;border:1px solid #DDD;padding:2px; margin:10px auto; text-align:left;	}
-	.list table tr { height:22px;}
-	.list table tr th { background:#F5F5F5;padding:2px;}
-	.list table tr td {padding:2px;}
-</style>
+
 <div id="main">		
 	<?=$this->load->view("admin/members/submenu")?>	
 	<h2>员工列表</h2>

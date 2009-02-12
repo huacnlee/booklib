@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $title ?></title>
+<link rel="stylesheet" href="<?=base_url() ?>styles/cp/html.css" media="screen" />
 <link rel="stylesheet" href="<?=base_url() ?>styles/cp/<?=$css_filename?>.css" media="screen" />
 <script type="text/javascript" src="<?=base_url() ?>scripts/jquery.js"></script>
 </head>

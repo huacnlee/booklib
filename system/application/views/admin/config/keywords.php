@@ -1,7 +1,8 @@
 <?=$this->load->view("admin/header",$data)?>
 <style type="text/css">
-.submenu ul li.keywords a{ background:#465C8A; color:#FFF; }
-span.name {font-size:14px; padding:8px;}
+#main .submenu ul li.keywords a{ background:#465C8A; color:#FFF; }
+span.name {font-size:14px; padding:6px;}
+.list { line-height:24px;}
 </style>
 <script type="text/javascript">
 	/**
