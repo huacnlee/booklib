@@ -1,14 +1,14 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
  * An open source application development framework for PHP 4.3.2 or newer
  *
  * @package		CodeIgniter
- * @author		Rick Ellis
- * @copyright	Copyright (c) 2006, EllisLab, Inc.
- * @license		http://www.codeignitor.com/user_guide/license.html
- * @link		http://www.codeigniter.com
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
  */
@@ -21,8 +21,8 @@
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Pagination
- * @author		Rick Ellis
- * @link		http://www.codeigniter.com/user_guide/libraries/pagination.html
+ * @author		ExpressionEngine Dev Team
+ * @link		http://codeigniter.com/user_guide/libraries/pagination.html
  */
 class CI_Pagination {
 
@@ -42,14 +42,16 @@ class CI_Pagination {
 	var $first_tag_close	= '&nbsp;';
 	var $last_tag_open		= '&nbsp;';
 	var $last_tag_close		= '';
-	var $cur_tag_open		= '&nbsp;<b>';
-	var $cur_tag_close		= '</b>';
+	var $cur_tag_open		= '&nbsp;<strong>';
+	var $cur_tag_close		= '</strong>';
 	var $next_tag_open		= '&nbsp;';
 	var $next_tag_close		= '&nbsp;';
 	var $prev_tag_open		= '&nbsp;';
 	var $prev_tag_close		= '';
 	var $num_tag_open		= '&nbsp;';
 	var $num_tag_close		= '';
+	var $page_query_string	= FALSE;
+	var $query_string_segment = 'per_page';
 
 	/**
 	 * Constructor
@@ -86,7 +88,7 @@ class CI_Pagination {
 				{
 					$this->$key = $val;
 				}
-			}		
+			}
 		}
 	}
 	
@@ -116,13 +118,34 @@ class CI_Pagination {
 		}
 
 		// Determine the current page number.		
-		$CI =& get_instance();	
-		if ($CI->uri->segment($this->uri_segment) != 0)
+		$CI =& get_instance();
+		
+		if ($CI->config->item('enable_query_strings') === TRUE OR $this->page_query_string === TRUE)
 		{
-			$this->cur_page = $CI->uri->segment($this->uri_segment);
-			
-			// Prep the current page - no funny business!
-			$this->cur_page = (int) $this->cur_page;
+			if ($CI->input->get($this->query_string_segment) != 0)
+			{
+				$this->cur_page = $CI->input->get($this->query_string_segment);
+				
+				// Prep the current page - no funny business!
+				$this->cur_page = (int) $this->cur_page;
+			}
+		}
+		else
+		{
+			if ($CI->uri->segment($this->uri_segment) != 0)
+			{
+				$this->cur_page = $CI->uri->segment($this->uri_segment);
+				
+				// Prep the current page - no funny business!
+				$this->cur_page = (int) $this->cur_page;
+			}
+		}
+
+		$this->num_links = (int)$this->num_links;
+		
+		if ($this->num_links < 1)
+		{
+			show_error('Your number of links must be a positive number.');
 		}
 				
 		if ( ! is_numeric($this->cur_page))
@@ -145,20 +168,28 @@ class CI_Pagination {
 		$start = (($this->cur_page - $this->num_links) > 0) ? $this->cur_page - ($this->num_links - 1) : 1;
 		$end   = (($this->cur_page + $this->num_links) < $num_pages) ? $this->cur_page + $this->num_links : $num_pages;
 
-		// Add a trailing slash to the base URL if needed
-		$this->base_url = rtrim($this->base_url, '/') .'/';
+		// Is pagination being used over GET or POST?  If get, add a per_page query
+		// string. If post, add a trailing slash to the base URL if needed
+		if ($CI->config->item('enable_query_strings') === TRUE OR $this->page_query_string === TRUE)
+		{
+			$this->base_url = rtrim($this->base_url).'&amp;'.$this->query_string_segment.'=';
+		}
+		else
+		{
+			$this->base_url = rtrim($this->base_url, '/') .'/';
+		}
 
   		// And here we go...
 		$output = '';
 
 		// Render the "First" link
-		if  ($this->cur_page > $this->num_links)
+		if  ($this->cur_page > ($this->num_links + 1))
 		{
 			$output .= $this->first_tag_open.'<a href="'.$this->base_url.'">'.$this->first_link.'</a>'.$this->first_tag_close;
 		}
 
 		// Render the "previous" link
-		if  (($this->cur_page - $this->num_links) >= 0)
+		if  ($this->cur_page != 1)
 		{
 			$i = $uri_page_number - $this->per_page;
 			if ($i == 0) $i = '';
@@ -208,4 +239,6 @@ class CI_Pagination {
 	}
 }
 // END Pagination Class
-?>
+
+/* End of file Pagination.php */
+/* Location: ./system/libraries/Pagination.php */

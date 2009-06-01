@@ -6,7 +6,7 @@
 		$password = $_POST["password"];
 	}
 ?>
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <div id="main">		
 	<div class="form login" id="panelLogin">	
 		<?=form_open("admin/login/submit")?>
@@ -27,4 +27,4 @@
 		<?=form_close()?>
 	</div>
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

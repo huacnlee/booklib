@@ -31,6 +31,7 @@
 |
 */
 
+$active_record = TRUE;
 $active_group = "default";
 
 $db['default']['hostname'] = "localhost";
@@ -39,11 +40,11 @@ $db['default']['password'] = "123123";
 $db['default']['database'] = "BookLib";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
-$db['default']['active_r'] = TRUE;
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
+$db['default']['cache_on'] = true;
 $db['default']['cachedir'] = "";
-
+$db['default']['char_set'] = "latin1";
+$db['default']['dbcollat'] = "latin1_swedish_ci";
 
 ?>

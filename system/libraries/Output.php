@@ -1,14 +1,14 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
  * An open source application development framework for PHP 4.3.2 or newer
  *
  * @package		CodeIgniter
- * @author		Rick Ellis
- * @copyright	Copyright (c) 2006, EllisLab, Inc.
- * @license		http://www.codeignitor.com/user_guide/license.html
- * @link		http://www.codeigniter.com
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
  */
@@ -23,8 +23,8 @@
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Output
- * @author		Rick Ellis
- * @link		http://www.codeigniter.com/user_guide/libraries/output.html
+ * @author		ExpressionEngine Dev Team
+ * @link		http://codeigniter.com/user_guide/libraries/output.html
  */
 class CI_Output {
 
@@ -71,7 +71,30 @@ class CI_Output {
 	}
 
 	// --------------------------------------------------------------------
-	
+
+	/**
+	 * Append Output
+	 *
+	 * Appends data onto the output string
+	 *
+	 * @access	public
+	 * @param	string
+	 * @return	void
+	 */	
+	function append_output($output)
+	{
+		if ($this->final_output == '')
+		{
+			$this->final_output = $output;
+		}
+		else
+		{
+			$this->final_output .= $output;
+		}
+	}
+
+	// --------------------------------------------------------------------
+
 	/**
 	 * Set Header
 	 *
@@ -84,9 +107,94 @@ class CI_Output {
 	 * @param	string
 	 * @return	void
 	 */	
-	function set_header($header)
+	function set_header($header, $replace = TRUE)
 	{
-		$this->headers[] = $header;
+		$this->headers[] = array($header, $replace);
+	}
+
+	// --------------------------------------------------------------------
+	
+	/**
+	 * Set HTTP Status Header
+	 *
+	 * @access	public
+	 * @param	int 	the status code
+	 * @param	string	
+	 * @return	void
+	 */	
+	function set_status_header($code = '200', $text = '')
+	{
+		$stati = array(
+							'200'	=> 'OK',
+							'201'	=> 'Created',
+							'202'	=> 'Accepted',
+							'203'	=> 'Non-Authoritative Information',
+							'204'	=> 'No Content',
+							'205'	=> 'Reset Content',
+							'206'	=> 'Partial Content',
+							
+							'300'	=> 'Multiple Choices',
+							'301'	=> 'Moved Permanently',
+							'302'	=> 'Found',
+							'304'	=> 'Not Modified',
+							'305'	=> 'Use Proxy',
+							'307'	=> 'Temporary Redirect',
+							
+							'400'	=> 'Bad Request',
+							'401'	=> 'Unauthorized',
+							'403'	=> 'Forbidden',
+							'404'	=> 'Not Found',
+							'405'	=> 'Method Not Allowed',
+							'406'	=> 'Not Acceptable',
+							'407'	=> 'Proxy Authentication Required',
+							'408'	=> 'Request Timeout',
+							'409'	=> 'Conflict',
+							'410'	=> 'Gone',
+							'411'	=> 'Length Required',
+							'412'	=> 'Precondition Failed',
+							'413'	=> 'Request Entity Too Large',
+							'414'	=> 'Request-URI Too Long',
+							'415'	=> 'Unsupported Media Type',
+							'416'	=> 'Requested Range Not Satisfiable',
+							'417'	=> 'Expectation Failed',
+		
+							'500'	=> 'Internal Server Error',
+							'501'	=> 'Not Implemented',
+							'502'	=> 'Bad Gateway',
+							'503'	=> 'Service Unavailable',
+							'504'	=> 'Gateway Timeout',
+							'505'	=> 'HTTP Version Not Supported'
+						);
+
+		if ($code == '' OR ! is_numeric($code))
+		{
+			show_error('Status codes must be numeric');
+		}
+
+		if (isset($stati[$code]) AND $text == '')
+		{				
+			$text = $stati[$code];
+		}
+		
+		if ($text == '')
+		{
+			show_error('No status text available.  Please check your status code number or supply your own message text.');
+		}
+		
+		$server_protocol = (isset($_SERVER['SERVER_PROTOCOL'])) ? $_SERVER['SERVER_PROTOCOL'] : FALSE;
+	
+		if (substr(php_sapi_name(), 0, 3) == 'cgi')
+		{
+			header("Status: {$code} {$text}", TRUE);
+		}
+		elseif ($server_protocol == 'HTTP/1.1' OR $server_protocol == 'HTTP/1.0')
+		{
+			header($server_protocol." {$code} {$text}", TRUE, $code);
+		}
+		else
+		{
+			header("HTTP/1.1 {$code} {$text}", TRUE, $code);
+		}
 	}
 	
 	// --------------------------------------------------------------------
@@ -160,7 +268,7 @@ class CI_Output {
 
 		// Parse out the elapsed time and memory usage,
 		// then swap the pseudo-variables with the data
-				
+
 		$elapsed = $BM->elapsed_time('total_execution_time_start', 'total_execution_time_end');		
 		$output = str_replace('{elapsed_time}', $elapsed, $output);
 		
@@ -188,7 +296,7 @@ class CI_Output {
 		{
 			foreach ($this->headers as $header)
 			{
-				@header($header);
+				@header($header[0], $header[1]);
 			}
 		}		
 
@@ -262,7 +370,7 @@ class CI_Output {
 	
 		$cache_path = ($path == '') ? BASEPATH.'cache/' : $path;
 		
-		if ( ! is_dir($cache_path) OR ! is_writable($cache_path))
+		if ( ! is_dir($cache_path) OR ! is_really_writable($cache_path))
 		{
 			return;
 		}
@@ -273,7 +381,7 @@ class CI_Output {
 		
 		$cache_path .= md5($uri);
 
-		if ( ! $fp = @fopen($cache_path, 'wb'))
+		if ( ! $fp = @fopen($cache_path, FOPEN_WRITE_CREATE_DESTRUCTIVE))
 		{
 			log_message('error', "Unable to write cache file: ".$cache_path);
 			return;
@@ -281,11 +389,18 @@ class CI_Output {
 		
 		$expire = time() + ($this->cache_expiration * 60);
 		
-		flock($fp, LOCK_EX);
-		fwrite($fp, $expire.'TS--->'.$output);
-		flock($fp, LOCK_UN);
+		if (flock($fp, LOCK_EX))
+		{
+			fwrite($fp, $expire.'TS--->'.$output);
+			flock($fp, LOCK_UN);
+		}
+		else
+		{
+			log_message('error', "Unable to secure a file lock for file at: ".$cache_path);
+			return;
+		}
 		fclose($fp);
-		@chmod($cache_path, 0777);
+		@chmod($cache_path, DIR_WRITE_MODE);
 
 		log_message('debug', "Cache file written: ".$cache_path);
 	}
@@ -298,14 +413,11 @@ class CI_Output {
 	 * @access	public
 	 * @return	void
 	 */	
-	function _display_cache(&$CFG, &$RTR)
+	function _display_cache(&$CFG, &$URI)
 	{
-		$CFG =& load_class('Config');
-		$RTR =& load_class('Router');
-	
 		$cache_path = ($CFG->item('cache_path') == '') ? BASEPATH.'cache/' : $CFG->item('cache_path');
 			
-		if ( ! is_dir($cache_path) OR ! is_writable($cache_path))
+		if ( ! is_dir($cache_path) OR ! is_really_writable($cache_path))
 		{
 			return FALSE;
 		}
@@ -313,7 +425,7 @@ class CI_Output {
 		// Build the file path.  The file name is an MD5 hash of the full URI
 		$uri =	$CFG->item('base_url').
 				$CFG->item('index_page').
-				$RTR->uri_string;
+				$URI->uri_string;
 				
 		$filepath = $cache_path.md5($uri);
 		
@@ -322,7 +434,7 @@ class CI_Output {
 			return FALSE;
 		}
 	
-		if ( ! $fp = @fopen($filepath, 'rb'))
+		if ( ! $fp = @fopen($filepath, FOPEN_READ))
 		{
 			return FALSE;
 		}
@@ -361,4 +473,6 @@ class CI_Output {
 
 }
 // END Output Class
-?>
+
+/* End of file Output.php */
+/* Location: ./system/libraries/Output.php */

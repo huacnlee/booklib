@@ -1,6 +1,6 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
-#main .submenu ul li.booktypes a{ background:#465C8A; color:#FFF; }
+#main .submenu ul li.booktypes a{ color:#666; text-decoration: none;  }
 </style>
 <script type="text/javascript">
 	/**
@@ -144,4 +144,4 @@ foreach ($booktypes->result() as $row)
 		</ul>
 	</div>
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

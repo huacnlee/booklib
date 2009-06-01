@@ -1,4 +1,4 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
 	.message { margin:50px auto; border:4px solid #465C6B;width:500px; text-align:left;}
 	.error {border:4px solid #C85848;}
@@ -17,4 +17,4 @@
 		</div>
 	</div>
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

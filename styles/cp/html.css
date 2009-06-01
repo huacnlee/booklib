@@ -2,48 +2,57 @@
 body { 
 	margin: 0; 
 	padding: 0; 
-	font-family: ËÎÌו,Arial, Lucida Grande, Verdana, Geneva, Sans-serif; 
+	font-family: "Lucida Grande","Lucida Sans Unicode",Verdana, Sans-serif; 
 	font-size: 12px; 
 	color: #333; 
-	background-color: #fff; 
+	background:#EEEEEE;
 	text-align:center;
 }
 
-#layout { margin:0;}
-#main { width:900px; margin:0 auto; background:#FFF;}
+a { color:#226BB3;}
+a:hover {color: #0099CC;}
 
-#header {background:#253139; height:111px; color:#FFF;}
-#header .inner {width:900px;  margin:0 auto 0 auto; text-align:left;  border-top:1px solid #313E45;}
-#header h1 { line-height:75px; font-size:25px;}
-#header .right {float:right; margin-top:-51px;}
-#header .right a {color:#FFF;padding:2px;}
-#header .right span {padding:2px;}
-#header .right span.username {font-weight:bold;}
+#layout { margin:0;background:#FFF;}
+#main { clear:both; width:900px; margin:0 auto; background:#FFF;}
+
+#header { background:#003366; height:40px; line-height:40px; color:#FFF;}
+#header .inner,#userbar .inner {width:900px;  margin:0 auto; text-align:left;}
+#userbar .inner { text-align:right;margin:8px auto; }
+#header h1 { font-size:18px;}
+#header h1 a { color:#FFF; text-decoration: none;}
+#header h1 a .book { color:#73BAEF;}
 
 #menubar{
-	margin-top:10px;
+	float:right; margin-top:-40px;
 }
 
-#menubar ul { list-style:none;width:900px;  margin:0 auto 0 auto; text-align:left; clear:both;}
-#menubar ul li { float:left; margin-right:5px;}
-#menubar ul li a:link,#menubar ul li a:visited {text-decoration:none; font-weight:bold; background:#142129; height:25px; line-height:24px; display:block; width:120px;color:#FFF; text-align:center; }
-#menubar ul li a:hover { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
+#menubar ul { list-style:none;margin:0 auto 0 auto; text-align:left; clear:both;}
+#menubar ul li { float:left; margin-left:15px;display:block; }
+#menubar ul li a:link,#menubar ul li a:visited { font-size:16px; color:#F0F0F0;  }
+#menubar ul li a:hover { color:#FFF;}
+#menubar ul li.none {color:#AAA; margin-left:35px;}
+#menubar ul li.none a { font-size:12px; color:#AAA; }
+#menubar ul li.username {font-weight:bold;}
 
-#footer { border-top:1px solid #CCC;}
-#footer .inner {width:900px;  margin:10px auto; font-size:11px; }
+#userbar {text-align: right; clear:both; color:#999;}
+#userbar a {padding:2px;}
+#userbar span {padding:2px;}
+
+#footer { border-top:1px solid #CCC; background:#EEEEEE;}
+#footer .inner {width:900px;  margin:0px auto; padding:10px 0;  font-size:11px; }
 #footer .inner .name {color:green;}
 
 #main {
 	width:900px;  margin:0 auto 0 auto; text-align:left; 
 }
 
-#main .submenu { font-weight:bold;}
-#main .submenu ul { list-style:none; height:28px; margin:10px;}
-#main .submenu ul li { float:left; margin-right:15px; }
-#main .submenu ul li a:link,#main .submenu ul li a:visited {padding:3px; color:#465C8A;}
-#main .submenu ul li a:hover { background:#465C8A; color:#FFF;}
+#main .submenu { font-weight:bold; }
+#main .submenu ul { list-style:none;  margin:5px;text-align:right;}
+#main .submenu ul li { display: inline; margin-right:5px; }
+#main .submenu ul li a:link,#main .submenu ul li a:visited { font-weight:bold; color:#465C8A;}
+#main .submenu ul li a:hover {}
 
-.form input.text,.form textarea.text,.form select.text {font-size:12px; border:1px solid #A5ACB2; padding:2px; }
+.form input.text,.form textarea.text,.form select.text {font-size:12px; padding:2px; }
 .form input.s { width:80px;}
 .form input.m { width:150px; }
 .form input.l {width:450px;}
@@ -52,11 +61,11 @@ body {
 
 ul {list-style-position:inside;}
 
-h2 {font-size:25px; color:#489D3E;}
+h2 {font-size:16px; color:#BB1111; margin:8px;}
 
 a.create {font-size:12px; color:#4850CB;font-weight:normal;} 
-a.delete {font-size:12px; color:green;font-weight:normal;}
-a.rename,a.edit,a.view {font-size:12px; color:#333;font-weight:normal;}
+a.delete {font-size:12px; color:#BB1111;font-weight:normal;}
+a.rename,a.edit,a.view {font-size:12px; color:#226BB3;font-weight:normal;}
 
 
 span.message { font-size:12px; font-weight:normal;color:green;}

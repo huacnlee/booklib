@@ -1,4 +1,4 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
 	.form { margin:20px; border:1px solid #CAD0D5; padding:10px;}
 	.form table tr td { padding:5px;}
@@ -80,4 +80,4 @@
 		</table>
 	</div>	
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

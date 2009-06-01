@@ -18,31 +18,24 @@ class Books extends Controller{
 	}
 	
 	function index(){
-	
+		
 		$pageSize = 30;
-		
-		$pageIndex = $this->uri->segment(4,1) - 1;
-		$searchText = $this->uri->segment(5,"");		
-		
+		$pageIndex = $this->uri->segment(4);	
+		$searchText = $this->uri->segment(5,"");
+
 		//加载分类列表
-        $this->load->model("bookmodel");
-        
+    $this->load->model("bookmodel");        
 		
 		
 		$bookList = $this->bookmodel->GetAllByPage($pageSize,$pageIndex,$searchText);
 		
 		$rowCount = $this->bookmodel->GetCount($searchText);
 		
-		$config['base_url'] = site_url()."/admin/books/index";		
-		$config['per_page'] = $pageSize;	
+		$config['base_url'] = site_url()."/admin/books/index/";
 		$config['uri_segment'] = 4;
-		$config['num_links'] = 7;
 		$config['total_rows'] = $rowCount;
-		$config['first_link'] = '首页';
-		$config['prev_link'] = '上一页';
-		$config['next_link'] = '下一页';
-		$config['last_link'] = '尾页';
-		
+    
+
 		$this->pagination->initialize($config);	
 		$pagebar =  $this->pagination->create_links();
 		
@@ -168,7 +161,7 @@ class Books extends Controller{
 		}
 		
 		//保存关键词
-		$this->load->model("keywords");		
+		$this->load->model("keywords");	
 		$this->keywords->SaveKeywords($bookArray["bookkeywords"]);
 		
 		//保存作者

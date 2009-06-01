@@ -1,7 +1,5 @@
 
-
-#menubar ul li.config a { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
-
+#menubar ul li.config a {  text-decoration: none; color:#44A1FF;}
 .list {
 	margin:20px;
 }

@@ -1,4 +1,1 @@
-
-
-#menubar ul li.books a { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
-
+#menubar ul li.books a { text-decoration: none; color:#44A1FF;}

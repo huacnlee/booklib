@@ -13,17 +13,8 @@
 	<div id="header">
 		<div class="inner">
 			<div class="left">
-				<h1><?=$title?></h1>
-			</div>
-			<div class="right">
-				<?php
-					if($this->uri->segment(2) != "login"){
-				?>
-				<span>你好</span> <span class="username"><?=get_cookie("username")?></span> <a href="<?=site_url() ?>/admin/config">参数设定</a> | <a href="<?=site_url() ?>/admin/login/out">退出</a>						
-				<?php
-					}
-				?>
-			</div>
+				<h1><a href="<?=base_url() ?>"><span class="book">Book</span>Library</a></h1>
+			</div>	
+			<?=$this->load->view("admin/menubar")?>					
 		</div>
-		<?=$this->load->view("admin/menubar",$data)?>
 	</div>

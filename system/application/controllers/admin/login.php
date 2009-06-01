@@ -90,7 +90,7 @@ class Login extends Controller {
 		else {
 			set_cookie("username",$username,"3600","","/");
 			set_cookie("password",$password,"3600","","/");
-			redirect("admin");
+			redirect("");
 		}
 	}
 	

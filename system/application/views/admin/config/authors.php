@@ -1,6 +1,6 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
-#main .submenu ul li.authors a{ background:#465C8A; color:#FFF; }
+#main .submenu ul li.authors a{  color:#666; text-decoration: none;  }
 span.name {font-size:14px; padding:8px;}
 .list { line-height:24px;}
 </style>
@@ -139,4 +139,4 @@ foreach ($authors->result() as $row)
 		</ul>
 	</div>
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

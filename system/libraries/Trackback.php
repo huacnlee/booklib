@@ -1,14 +1,14 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
  * An open source application development framework for PHP 4.3.2 or newer
  *
  * @package		CodeIgniter
- * @author		Rick Ellis
- * @copyright	Copyright (c) 2006, EllisLab, Inc.
- * @license		http://www.codeignitor.com/user_guide/license.html
- * @link		http://www.codeigniter.com
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
  */
@@ -23,8 +23,8 @@
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Trackbacks
- * @author		Paul Burdick
- * @link		http://www.codeigniter.com/user_guide/libraries/trackback.html
+ * @author		ExpressionEngine Dev Team
+ * @link		http://codeigniter.com/user_guide/libraries/trackback.html
  */
 class CI_Trackback {
 		
@@ -261,7 +261,7 @@ class CI_Trackback {
 		// Was it successful?
 		$this->response = "";
 		
-		while(!feof($fp))
+		while( ! feof($fp))
 		{
 			$this->response .= fgets($fp, 128);
 		}
@@ -439,8 +439,8 @@ class CI_Trackback {
 		{
 			return $str;
 		}
-			
-		$str = preg_replace("/\s+/", ' ', preg_replace("/(\r\n|\r|\n)/", " ", $str));
+
+		$str = preg_replace("/\s+/", ' ', str_replace(array("\r\n", "\r", "\n"), ' ', $str));
 	
 		if (strlen($str) <= $n)
 		{
@@ -545,4 +545,6 @@ class CI_Trackback {
 
 }
 // END Trackback Class
-?>
+
+/* End of file Trackback.php */
+/* Location: ./system/libraries/Trackback.php */

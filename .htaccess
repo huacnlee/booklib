@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteBase /booklib
+RewriteCond $1 !^(index\.php|styles|scripts|images|robots\.txt)
+RewriteRule ^(.*)$ /booklib/index.php/$1 [L]
+

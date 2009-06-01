@@ -1,10 +1,10 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
 	.form { margin:20px; border:1px solid #CAD0D5; padding:10px;}
 	.form table tr td { padding:5px;}
 	.form table tr td.label { width:80px; text-align:right; color:#999;}
 	
-	#main .submenu ul li.create a{ background:#465C8A; color:#FFF; }
+	#main .submenu ul li.create a{ color:#666; text-decoration: none;  }
 </style>
 <div id="main">			
 	<?=$this->load->view("admin/books/submenu")?>
@@ -102,4 +102,4 @@
 	<?=form_close()?>
 	</div>	
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

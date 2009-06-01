@@ -1,4 +1,4 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
 	.list {text-align:center;}
 	.list table {width:880px;border:1px solid #DDD;padding:2px; margin:10px auto; text-align:left;	}
@@ -10,7 +10,7 @@
 	.list table tr.li  td{background:#F9F9F9;}
 	.list table span.disabled {color:#DDD;}
 
-	#main .submenu ul li.list a{ background:#465C8A; color:#FFF; }
+	#main .submenu ul li.list a{ color:#666; text-decoration: none;  }
 
 	.listinfo { width:880px; margin:10px auto; background:#FFFDE9; border:1px solid #EEEBA3; padding:2px;}
 	.listinfo .title { font-size:14px; font-weight:bold; color:#DFAC00;padding:5px;}
@@ -25,6 +25,7 @@
 	.pager b { padding:0 4px; }
 
 </style>
+
 <script type="text/javascript">
 $("#main .list").ready(function(){
 	var list = $(this);
@@ -69,7 +70,7 @@ var removeBook = function(bookid){
 	var doSearch = function(){
 		var searchText = $("#txtSearch").val();
 		
-		location.href = "<?=site_url() ?>/admin/books/index/1/"+searchText;
+		location.href = "<?=site_url() ?>/admin/books/index/0/"+searchText;
 		return false;
 	}
 </script>
@@ -168,4 +169,4 @@ var removeBook = function(bookid){
 		</div>
 	</div>
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

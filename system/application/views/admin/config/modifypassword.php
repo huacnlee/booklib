@@ -1,6 +1,6 @@
-<?=$this->load->view("admin/header",$data)?>
+<?=$this->load->view("admin/header")?>
 <style type="text/css">
-#main .submenu ul li.password a {background:#465C8A; color:#FFF; }
+#main .submenu ul li.password a {color:#666; text-decoration: none;  }
 #password { margin:10px;}
 #password table tr { height:25px;}
 </style>
@@ -29,4 +29,4 @@
 		<?= form_close() ?>
 	</div>
 </div>
-<?=$this->load->view("admin/footer",$data)?>
+<?=$this->load->view("admin/footer")?>

@@ -13,6 +13,7 @@
 */
 $config['base_url']	= "http://172.28.60.20:8080/booklib/";
 
+
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -23,7 +24,7 @@ $config['base_url']	= "http://172.28.60.20:8080/booklib/";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = "index.php";
+$config['index_page'] = "";
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ $config['language']	= "english";
 | that require a character set to be provided.
 |
 */
-$config['charset'] = "UTF-8";
+$config['charset'] = "utf-8";
 
 /*
 |--------------------------------------------------------------------------
@@ -149,7 +150,7 @@ $config['permitted_uri_chars'] ='a-z 0-9~%.:_\u4e00-\u9fa5';
 | use segment based URLs.
 |
 */
-$config['enable_query_strings'] = true;
+$config['enable_query_strings'] = True;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
 
@@ -237,6 +238,7 @@ $config['sess_use_database']	= FALSE;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= TRUE;
+$config['sess_time_to_update'] = 300;
 
 /*
 |--------------------------------------------------------------------------
@@ -280,7 +282,7 @@ $config['global_xss_filtering'] = FALSE;
 | by the output class.  Do not "echo" any values with compression enabled.
 |
 */
-$config['compress_output'] = FALSE;
+$config['compress_output'] = True;
 
 /*
 |--------------------------------------------------------------------------
@@ -306,7 +308,9 @@ $config['time_reference'] = 'local';
 | in your view files.  Options are TRUE or FALSE (boolean)
 |
 */
-$config['rewrite_short_tags'] = FALSE;
+$config['rewrite_short_tags'] = true;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -322,6 +326,6 @@ $config['rewrite_short_tags'] = FALSE;
 |--------------------------------------------------------------------------
 */
 $config["sitename"] = "壹旅游图书管理系统";
-$config["version"] = "1.0.2";
+$config["version"] = "1.0.3";
 
 ?>

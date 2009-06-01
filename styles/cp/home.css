@@ -1,8 +1,22 @@
 
 
-#menubar ul li.home a { background:url("../../images/themes/images/tab_selected.gif") top left repeat-x; color:#142129;}
+#menubar ul li.home a { text-decoration: none; color:#44A1FF;}
 
 
 
 .tip { margin:20px; padding:10px;}
 .tip h3 { margin-bottom:5px; border-bottom:1px solid #DDD; padding:5px; }
+
+#server-info { display:none;}
+
+#app-logo { text-align: center; }
+#app-logo img.image { vertical-align: bottom;}
+#app-logo .app-name { height:96px; line-height:96px; color:#A95E1D; font-size:48px; font-weight:bold;}
+#app-logo .app-name .book { color:#307CD2;}
+
+#shortcut { text-align: center; margin:18px;}
+#shortcut a { margin-right:15px; font-size:18px;}
+
+#quicksearch { text-align:center;}
+#quicksearch input { font-size:16px; padding:4px;}
+#quicksearch button { padding:4px 8px;}
